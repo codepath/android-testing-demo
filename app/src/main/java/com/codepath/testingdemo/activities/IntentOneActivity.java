@@ -25,6 +25,7 @@ public class IntentOneActivity extends AppCompatActivity {
         String message = getIntent().getStringExtra(EXTRA_MESSAGE);
 
         TextView tvMessage = (TextView)findViewById(R.id.tvMessage);
+        tvMessage.setText(message);
 
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

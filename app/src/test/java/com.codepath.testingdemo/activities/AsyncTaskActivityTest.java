@@ -15,7 +15,6 @@ import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowApplication;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 @RunWith(RobolectricGradleTestRunner.class)
@@ -29,11 +28,6 @@ public class AsyncTaskActivityTest {
         // methods: create().start().postCreate(null).resume().visible()
         // Followed by a get() to return the activity
         activity = Robolectric.setupActivity(AsyncTaskActivity.class);
-    }
-
-    @Test
-    public void activityCreatedSuccessfully() {
-        assertNotNull(activity);
     }
 
     @Test

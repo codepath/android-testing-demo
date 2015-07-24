@@ -17,7 +17,7 @@ import org.robolectric.util.ActivityController;
 
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 @RunWith(RobolectricGradleTestRunner.class)
-public class MainActivityTest {
+public class BaseActivityTest {
 
     private ActivityController<MainActivity> controller;
     private MainActivity activity;

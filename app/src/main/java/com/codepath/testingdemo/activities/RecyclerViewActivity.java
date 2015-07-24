@@ -34,7 +34,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
     private List<Post> getPosts() {
         return Arrays.asList(
                 new Post("Steph", "We Won!!!"),
-                new Post("Lebron", null),
+                new Post("Lebron", "No comment"),
                 new Post("Andre", "Yes!")
         );
     }
