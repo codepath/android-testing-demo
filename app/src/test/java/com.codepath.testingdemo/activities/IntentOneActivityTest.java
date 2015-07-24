@@ -16,7 +16,6 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
-import org.robolectric.shadows.ShadowIntent;
 import org.robolectric.util.ActivityController;
 
 import static org.assertj.android.api.Assertions.assertThat;
@@ -70,16 +69,14 @@ public class IntentOneActivityTest {
         ShadowActivity shadowActivity = Shadows.shadowOf(activity);
         Intent actualIntent = shadowActivity.getNextStartedActivity();
 
-        ShadowIntent shadowActualIntent = Shadows.shadowOf(actualIntent);
-
         // Determine if two intents are the same for the purposes of intent resolution (filtering).
         // That is, if their action, data, type, class, and categories are the same. This does
         // not compare any extra data included in the intents
-        assertTrue(shadowActualIntent.filterEquals(expectedIntent));
+        assertTrue(actualIntent.filterEquals(expectedIntent));
 
         // Make sure extra is included and correct
         assertThat(actualIntent).hasExtra(IntentTwoActivity.EXTRA_MESSAGE);
-        assertTrue(shadowActualIntent.getStringExtra(IntentTwoActivity.EXTRA_MESSAGE)
+        assertTrue(actualIntent.getStringExtra(IntentTwoActivity.EXTRA_MESSAGE)
                 .equals("Second Activity"));
     }
 }
