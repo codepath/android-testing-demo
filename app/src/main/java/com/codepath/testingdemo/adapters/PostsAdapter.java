@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Simple Adapter that populates a single textView  that shows a userName / caption in each item
+ * Simple Adapter that populates a single textView that shows a userName / caption in each item
  */
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostItemViewHolder> {
     private static final String TAG = "InstagramPostsAdapter";
@@ -39,6 +39,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostItemView
         if (!TextUtils.isEmpty(post.caption)) {
             postItemViewHolder.tvCaption.setText(
                     String.format("%s: %s", post.userName, post.caption));
+        } else {
+            postItemViewHolder.tvCaption.setVisibility(View.GONE);
         }
     }
 

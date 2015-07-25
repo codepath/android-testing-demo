@@ -39,8 +39,8 @@ public class PostsAdapterTest {
     public void postsAdapterViewRecyclingCaption() {
         // Set up input
         List<Post> posts = Arrays.asList(
-                new Post("Steph", "We Won!!!"),
-                new Post("Lebron", null)
+                new Post("Lebron", null),
+                new Post("Steph", "We Won!!!")
         );
 
 
@@ -56,18 +56,19 @@ public class PostsAdapterTest {
         adapter.onBindViewHolder(viewHolder, 0);
 
         // JUnit Assertion
+        assertEquals(View.GONE, viewHolder.tvCaption.getVisibility());
+
+        // AssertJ-Android Assertion
+        assertThat(viewHolder.tvCaption).isGone();
+
+        adapter.onBindViewHolder(viewHolder, 1);
+
+        // JUnit Assertion
         assertEquals("Steph: We Won!!!", viewHolder.tvCaption.getText().toString());
 
         // AssertJ-Android Assertion
         assertThat(viewHolder.tvCaption).isVisible().containsText("Won");
 
-        adapter.onBindViewHolder(viewHolder, 1);
-
-        // JUnit Assertion
-        assertEquals(View.GONE, viewHolder.tvCaption.getVisibility());
-
-        // AssertJ-Android Assertion
-        assertThat(viewHolder.tvCaption).isGone();
         assertThat(adapter).hasItemCount(2);
     }
 }
