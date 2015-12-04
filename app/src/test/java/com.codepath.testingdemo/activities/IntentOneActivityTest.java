@@ -62,9 +62,9 @@ public class IntentOneActivityTest {
 
         createWithIntent(firstActivityMessage);
 
-        activity.findViewById(R.id.btnNext).performClick();
-
         Intent expectedIntent = new Intent(activity, IntentTwoActivity.class);
+
+        activity.findViewById(R.id.btnNext).performClick();
 
         ShadowActivity shadowActivity = Shadows.shadowOf(activity);
         Intent actualIntent = shadowActivity.getNextStartedActivity();

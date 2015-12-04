@@ -51,7 +51,9 @@ public class BaseActivityTest {
     @Test
     public void createsAndDestroysActivity() {
         createWithIntent("my extra_value");
+
         // ... add assertions ...
+
     }
 
     // Simulates phone call during app usage type of scenario
@@ -59,7 +61,9 @@ public class BaseActivityTest {
     public void pausesAndResumesActivity() {
         createWithIntent("my extra_value");
         controller.pause().resume();
+
         // ... add assertions ...
+
     }
 
     // Simulates device rotation
@@ -67,6 +71,8 @@ public class BaseActivityTest {
     public void recreatesActivity() {
         createWithIntent("my extra_value");
         activity.recreate();
+
         // ... add assertions ...
+
     }
 }
