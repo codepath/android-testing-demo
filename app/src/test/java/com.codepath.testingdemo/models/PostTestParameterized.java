@@ -20,7 +20,7 @@ public class PostTestParameterized {
         return post;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters( name = "{index}: postWithLikers-{1}" )
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {postWithLikers("Steph", "Klay", "Andre"), "Steph, Klay, Andre"},
